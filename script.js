@@ -78,19 +78,23 @@ function startTypewriter() {
 const btnNo = document.getElementById('btnNo');
 
 function moveBtnNo() {
-    btnNo.style.position = 'fixed';
+    btnNo.style.position = 'absolute';
     
-    // Obtener dimensiones seguras para PC y Móvil
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
+    // El contenedor padre debe ser relativo
+    const container = document.querySelector('.buttons-container');
+    const containerRect = container.getBoundingClientRect();
+    
     const btnWidth = btnNo.offsetWidth;
     const btnHeight = btnNo.offsetHeight;
     
-    const maxX = windowWidth - btnWidth - 20;
-    const maxY = windowHeight - btnHeight - 20;
+    // Límites dentro de la tarjeta / pantalla
+    const maxX = containerRect.width - btnWidth;
+    // Para que no se vaya muy lejos hacia abajo o arriba
+    const maxY = 150; 
     
-    const randomX = Math.max(10, Math.random() * maxX);
-    const randomY = Math.max(10, Math.random() * maxY);
+    const randomX = Math.random() * maxX;
+    // Permitimos que se mueva hacia arriba o abajo en un rango seguro
+    const randomY = (Math.random() * maxY) - (maxY / 2); 
     
     btnNo.style.left = `${randomX}px`;
     btnNo.style.top = `${randomY}px`;

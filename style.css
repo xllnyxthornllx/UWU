@@ -23,13 +23,17 @@ body {
     font-family: var(--font-round);
     background: var(--bg-gradient);
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    overflow: hidden; /* Evita que la pantalla se mueva por los corazones */
+    overflow-x: hidden;
+    overflow-y: auto;
     position: relative;
     color: var(--text-main);
+    padding: 2rem 1rem;
 }
 
 /* =========================================
@@ -45,6 +49,7 @@ body {
     box-shadow: 0 15px 40px rgba(255, 64, 129, 0.4);
     max-width: 90%;
     width: 650px;
+    margin: auto; /* Centrado flex fallback y previene corte de top */
     z-index: 10;
     position: relative;
     transition: transform 0.3s ease;
