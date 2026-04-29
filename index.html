@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi preciosa niña, Luz 💖</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fuentes tiernas y bonitas -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;600&display=swap"
+        rel="stylesheet">
+    <!-- Librería para el confeti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+    <!-- Capa para corazones flotantes del fondo -->
+    <div id="hearts-bg"></div>
+
+    <!-- Audio de fondo: Debes poner tu canción favorita en esta misma carpeta y llamarla "musica.mp3" -->
+    <audio id="bg-music" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="card-container glow-effect">
+        <!-- Pantalla 1: Bienvenida -->
+        <section id="screen1" class="screen active">
+            <div class="bouncing-heart">❤️</div>
+            <h1 class="title">Hola, Luz...</h1>
+            <p class="subtitle">Tengo algo muy especial para ti.</p>
+            <p class="small-text pulse">(Sube el volumen 🎵)</p>
+            <button class="btn btn-pink float-anim" onclick="startExperience()">Toca para empezar ✨</button>
+        </section>
+
+        <!-- Pantalla 2: El Poema -->
+        <section id="screen2" class="screen hidden">
+            <div class="poem-container">
+                <p id="typewriter-text" class="poem-text"></p>
+            </div>
+            <button id="btn-next-poem" class="btn btn-pink hidden" onclick="nextScreen(2)">Sigue leyendo... 💌</button>
+        </section>
+
+        <!-- Pantalla 3: Lucifer el gato -->
+        <section id="screen3" class="screen hidden">
+            <h2 class="subtitle cursive-sub">Estuve pensando en cómo decírtelo...</h2>
+            <div class="lucifer-container">
+                <!-- Imagen del gato: Pon la foto de su gato aquí, llámala "lucifer.png" -->
+                <img src="lucifer.png" alt="Lucifer el gato dando su aprobación" class="lucifer-img wiggle-anim"
+                    onerror="this.src='https://media.tenor.com/H92VfHq9d9YAAAAi/cinderella-lucifer.gif'">
+            </div>
+            <p class="subtitle">Y hasta Lucifer me dio permiso porque sabe cuánto te quiero. 🐈‍⬛💖</p>
+            <button class="btn btn-pink float-anim" onclick="nextScreen(3)">Continuar 💕</button>
+        </section>
+
+        <!-- Pantalla 4: La Pregunta -->
+        <section id="screen4" class="screen hidden">
+            <h2 class="pre-question">Por eso, frente a ti y con el permiso de Lucifer, quiero preguntarte...</h2>
+            <h1 class="main-question zoom-in-out">¿Quieres ser mi novia?</h1>
+
+            <div class="buttons-container">
+                <button id="btnYes" class="btn btn-yes heartbeat" onclick="sayYes()">¡SÍ, QUIERO! 🥰</button>
+                <button id="btnNo" class="btn btn-no">No</button>
+            </div>
+        </section>
+
+        <!-- Pantalla 5: Celebración -->
+        <section id="screen5" class="screen hidden">
+            <div class="celebration-content">
+                <div class="sparkles-container">✨ 🎉 ✨</div>
+                <h1 class="title success">¡Sabía que dirías que sí! 💖💖💖</h1>
+                <p class="subtitle highlight-text">Me acabas de hacer el hombre más feliz del universo entero.</p>
+                <p class="subtitle cursive-sub pink-text">Te quiero muchísimo, mi hermosa Luz.</p>
+
+                <div class="polaroid tilt-left">
+                    <!-- Espacio para una foto de ustedes si quieres ponerla luego. Por ahora es un cuadro bonito -->
+                    <div class="polaroid-img-placeholder">
+                        <span class="bouncing-heart">Luz & Yo</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
